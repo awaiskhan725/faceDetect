@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import logo from "../images/logo.png";
 
+import { SERVER_URL } from "../constants";
+
 export default class SignInForm extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +22,7 @@ export default class SignInForm extends Component {
 
   onSubmit = () => {
     // configure the fetch api to post request
-    fetch("http://localhost:3001/signin", {
+    fetch(`${SERVER_URL}/signin`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

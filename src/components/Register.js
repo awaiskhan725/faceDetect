@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import logo from "../images/logo.png";
 
+import { SERVER_URL } from "../constants";
+
 // const Register = ({ userExist, onRouteChange }) => {
 export default class Register extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ export default class Register extends Component {
 
   onSubmit = () => {
     // configure the fetch api to post request
-    fetch("http://localhost:3001/register", {
+    fetch(`${SERVER_URL}/register`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

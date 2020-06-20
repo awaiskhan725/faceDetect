@@ -11,7 +11,7 @@ import {
   Register,
 } from "./components";
 
-import { PARTICLES_PARAMS } from "./constants";
+import { PARTICLES_PARAMS, SERVER_URL } from "./constants";
 
 const initialState = {
   input: "",
@@ -71,7 +71,7 @@ export default class App extends Component {
   onDetectButtonClicked = () => {
     this.setState({ url: this.state.input });
     // sending image url to the server to detect face regions
-    fetch("http://localhost:3001/faceDetect", {
+    fetch(`${SERVER_URL}/faceDetect`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -81,7 +81,7 @@ export default class App extends Component {
       .then((response) => response.json())
       .then((response) => {
         // update user entries in a database
-        fetch("http://localhost:3001/image", {
+        fetch(`${SERVER_URL}/image`, {
           method: "put",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

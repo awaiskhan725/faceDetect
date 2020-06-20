@@ -19,3 +19,5 @@ export const PARTICLES_PARAMS = {
     },
   },
 };
+
+export const SERVER_URL = "https://powerful-mesa-42973.herokuapp.com";
